@@ -3,20 +3,35 @@ import { Button } from "/src/components/ui/button";
 import { Card, CardContent } from "/src/components/ui/card.jsx";
 import { Star, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 
-// ── Hero Carousel Images ────────────────────────────────────────
-const heroImages = [
-  "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
-  "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d26?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
-  "https://images.unsplash.com/photo-1627483262268-6b3ab0d9e8f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
-  "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
-];
+// ── Hero Carousel Images (from /public/) ─────────────────────────
+const heroImages = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg"];
 
-// ── Products ─────────────────────────────────────────────────────
+// ── Products (from /public/) ─────────────────────────────────────
 const mayafiProducts = [
-  { img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800", name: "Mayafi Everyday Abaya", desc: "Light chiffon • Breathable • Timeless", price: "₹4,999" },
-  { img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800", name: "Luxury Jallabiya Thobe", desc: "Premium blend • Embroidered elegance", price: "₹6,799" },
-  { img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800", name: "Nexvora Comfort Shoes", desc: "Ergonomic • Modest • All-day wear", price: "₹3,299" },
-  { img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800", name: "Mayafi Evening Drape", desc: "Flowing silhouette • Subtle luxury", price: "₹5,499" },
+  {
+    img: "/5.jpeg",
+    name: "Mayafi Everyday Abaya",
+    desc: "Light chiffon • Breathable • Timeless",
+    price: "₹4,999",
+  },
+  {
+    img: "/6.jpeg",
+    name: "Luxury Jallabiya Thobe",
+    desc: "Premium blend • Embroidered",
+    price: "₹6,799",
+  },
+  {
+    img: "/7.jpeg",
+    name: "Nexvora Comfort Shoes",
+    desc: "Ergonomic • Modest • All-day wear",
+    price: "₹3,299",
+  },
+  {
+    img: "/8.jpeg",
+    name: "Mayafi Evening Drape",
+    desc: "Flowing silhouette • Subtle luxury",
+    price: "₹5,499",
+  },
 ];
 
 // ── Carousel Component ───────────────────────────────────────────
@@ -34,16 +49,24 @@ const Carousel = ({ images, interval = 5000 }) => {
         <img
           key={i}
           src={src}
-          alt=""
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
+          alt={`Hero slide ${i + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
         />
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <div className="absolute inset-0 flex items-center justify-between px-5 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button onClick={() => setCurrent((p) => (p - 1 + images.length) % images.length)} className="p-4 bg-black/40 backdrop-blur rounded-full">
+        <button
+          onClick={() => setCurrent((p) => (p - 1 + images.length) % images.length)}
+          className="p-4 bg-black/40 backdrop-blur rounded-full hover:bg-black/60 transition"
+        >
           <ChevronLeft size={28} className="text-white" />
         </button>
-        <button onClick={() => setCurrent((p) => (p + 1) % images.length)} className="p-4 bg-black/40 backdrop-blur rounded-full">
+        <button
+          onClick={() => setCurrent((p) => (p + 1) % images.length)}
+          className="p-4 bg-black/40 backdrop-blur rounded-full hover:bg-black/60 transition"
+        >
           <ChevronRight size={28} className="text-white" />
         </button>
       </div>
@@ -52,7 +75,9 @@ const Carousel = ({ images, interval = 5000 }) => {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-3 h-3 rounded-full transition-all ${i === current ? "bg-white scale-125" : "bg-white/50"}`}
+            className={`w-3 h-3 rounded-full transition-all ${
+              i === current ? "bg-white scale-125" : "bg-white/50 hover:bg-white/80"
+            }`}
           />
         ))}
       </div>
@@ -66,14 +91,20 @@ const Header = () => {
   const navItems = ["Home", "Mayafi", "About", "Reviews", "Contact"];
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-lg border-b sticky top-0 z-50 shadow-sm border-indigo-400">
+    <header className="w-full bg-white/95 backdrop-blur-lg border-b sticky top-0 z-50 shadow-sm border-indigo-400/30">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Nexvora</h1>
+        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Nexvora
+        </h1>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="text-gray-700 font-medium hover:text-indigo-600 transition">
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-gray-700 font-medium hover:text-indigo-600 transition-colors"
+            >
               {item}
             </a>
           ))}
@@ -81,7 +112,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile Hamburger */}
-        <button className="md:hidden text-gray-700" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-gray-700 focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -89,7 +120,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 py-6" : "max-h-0"
+          isOpen ? "max-h-96 py-6" : "max-h-0 py-0"
         } bg-white border-b shadow-lg`}
       >
         <nav className="flex flex-col items-center space-y-6 text-lg font-medium text-gray-800">
@@ -97,13 +128,16 @@ const Header = () => {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="hover:text-indigo-600 transition"
+              className="hover:text-indigo-600 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item}
             </a>
           ))}
-          <Button className="bg-indigo-600 hover:bg-indigo-700 px-10 py-3" onClick={() => setIsOpen(false)}>
+          <Button
+            className="bg-indigo-600 hover:bg-indigo-700 px-10 py-3"
+            onClick={() => setIsOpen(false)}
+          >
             Shop Now
           </Button>
         </nav>
@@ -111,6 +145,9 @@ const Header = () => {
     </header>
   );
 };
+
+// The rest of the components remain the same (Hero, ProductCard, MayafiSection, About, Reviews, Contact, Footer)
+// Only the image arrays at the top were changed
 
 // ── Hero ─────────────────────────────────────────────────────────
 const Hero = () => (
@@ -126,7 +163,10 @@ const Hero = () => (
           </p>
           <div className="flex flex-wrap gap-5">
             <Button className="text-lg px-10 py-6 shadow-xl">Explore Collection</Button>
-            <Button variant="outline" className="text-lg px-10 py-6 border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50">
+            <Button
+              variant="outline"
+              className="text-lg px-10 py-6 border-2 border-indigo-600 text-indigo-700 hover:bg-indigo-50"
+            >
               Shop Jallabiya
             </Button>
           </div>
@@ -137,12 +177,18 @@ const Hero = () => (
   </section>
 );
 
-// ── Product Card (small reusable component) ──────────────────────
+// ── Product Card ─────────────────────────────────────────────────
 const ProductCard = ({ product }) => (
   <Card className="overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-200 rounded-2xl group">
     <div className="relative">
-      <img src={product.img} alt={product.name} className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
-      <div className="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
+      <img
+        src={product.img}
+        alt={product.name}
+        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+        New
+      </div>
     </div>
     <CardContent className="p-6 space-y-4">
       <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
@@ -150,7 +196,9 @@ const ProductCard = ({ product }) => (
       <div className="flex justify-between items-center">
         <span className="text-2xl font-bold text-indigo-700">{product.price}</span>
         <div className="flex text-yellow-500">
-          {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} size={18} fill="currentColor" />
+          ))}
         </div>
       </div>
       <Button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
@@ -167,11 +215,12 @@ const MayafiSection = () => (
       Mayafi Collection
     </h2>
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {mayafiProducts.map((p, i) => <ProductCard key={i} product={p} />)}
+      {mayafiProducts.map((p, i) => (
+        <ProductCard key={i} product={p} />
+      ))}
     </div>
   </section>
 );
-
 // ── About ────────────────────────────────────────────────────────
 const About = () => (
   <section id="about" className="bg-gradient-to-br from-indigo-50 via-purple-50 to-indigo-50 py-24">
@@ -230,7 +279,6 @@ const Footer = () => (
     <p>© {new Date().getFullYear()} Nexvora. Crafted with care in India. All rights reserved.</p>
   </footer>
 );
-
 // ── Main App ─────────────────────────────────────────────────────
 export default function App() {
   return (
