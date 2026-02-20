@@ -289,7 +289,7 @@ const Reviews = () => {
 const Contact = () => {
   const contactInfo = {
     whatsapp: "https://wa.me/2348123442014?text=Hello%20Nexvora%20team%21%20I%20have%20a%20question...",
-    instagram: "https://instagram.com/nexvora_official",
+    instagram: "https://instagram.com/nexvora_global",
     facebook: "https://facebook.com/nexvora",
     phone: "tel:+2348123442014",
     email: "mailto:support@nexvora.com?subject=Inquiry%20from%20Nexvora%20website&body=Hi%20team,%0A%0AI%20would%20like%20to%20know%20more%20about...%0A%0AThanks!",
