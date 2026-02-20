@@ -4,7 +4,7 @@ import { Card, CardContent } from "/src/components/ui/card.jsx";
 import { Star, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 
 // ── Hero Carousel Images (from /public/) ─────────────────────────
-const heroImages = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg"];
+const heroImages = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg", "/5.jpeg", "/6.jpeg", "7.jpeg", "/8.jpeg"];
 
 // ── Products (from /public/) ─────────────────────────────────────
 const mayafiProducts = [
