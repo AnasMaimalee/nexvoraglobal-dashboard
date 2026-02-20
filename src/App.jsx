@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "/src/components/ui/button";
 import { Card, CardContent } from "/src/components/ui/card.jsx";
 import { Star, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, PhoneCall, Mail } from "lucide-react";
 
 // ── Hero Carousel Images (from /public/) ─────────────────────────
 const heroImages = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg", "/5.jpeg", "/6.jpeg", "7.jpeg", "/8.jpeg"];
@@ -285,19 +286,92 @@ const Reviews = () => {
   );
 };
 
-// ── Contact & Footer ─────────────────────────────────────────────
-const Contact = () => (
-  <section id="contact" className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-24">
-    <div className="max-w-3xl mx-auto px-6 text-center space-y-8">
-      <h2 className="text-4xl md:text-5xl font-extrabold">Let’s Connect</h2>
-      <p className="text-xl opacity-90">Questions about sizing, fabric, or custom pieces? We're here for you.</p>
-      <Button className="hover:cursor-pointer text-indigo-700 hover:bg-gray-100 text-lg px-12 py-7 shadow-xl">
-        Email Support →
-      </Button>
-    </div>
-  </section>
-);
+const Contact = () => {
+  const contactInfo = {
+    whatsapp: "https://wa.me/2348123442014?text=Hello%20Nexvora%20team%21%20I%20have%20a%20question...",
+    instagram: "https://instagram.com/nexvora_official",
+    facebook: "https://facebook.com/nexvora",
+    phone: "tel:+2348123442014",
+    email: "mailto:support@nexvora.com?subject=Inquiry%20from%20Nexvora%20website&body=Hi%20team,%0A%0AI%20would%20like%20to%20know%20more%20about...%0A%0AThanks!",
+  };
 
+  return (
+    <section id="contact" className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-24">
+      <div className="max-w-4xl mx-auto px-6 text-center space-y-10">
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">Let’s Connect</h2>
+
+        <p className="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">
+          Got questions about sizing, fabrics, custom orders, shipping, or anything else? Reach us anytime — we're here for you!
+        </p>
+
+        {/* Contact Icons Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 pt-8 max-w-5xl mx-auto">
+          {/* WhatsApp */}
+          <a
+            href={contactInfo.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-3 group"
+          >
+            <div className="p-5 bg-white/15 backdrop-blur-sm rounded-2xl transition-all group-hover:bg-green-500/30 group-hover:scale-110">
+              <MessageCircle size={40} className="text-white group-hover:text-green-300 transition-colors" />
+            </div>
+            <span className="text-sm font-medium opacity-90 group-hover:opacity-100">WhatsApp</span>
+          </a>
+
+          {/* Instagram */}
+          <a
+            href={contactInfo.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-3 group"
+          >
+            <div className="p-5 bg-white/15 backdrop-blur-sm rounded-2xl transition-all group-hover:bg-pink-500/30 group-hover:scale-110">
+              <Instagram size={40} className="text-white group-hover:text-pink-300 transition-colors" />
+            </div>
+            <span className="text-sm font-medium opacity-90 group-hover:opacity-100">Instagram</span>
+          </a>
+
+          {/* Facebook */}
+          <a
+            href={contactInfo.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-3 group"
+          >
+            <div className="p-5 bg-white/15 backdrop-blur-sm rounded-2xl transition-all group-hover:bg-blue-500/30 group-hover:scale-110">
+              <Facebook size={40} className="text-white group-hover:text-blue-300 transition-colors" />
+            </div>
+            <span className="text-sm font-medium opacity-90 group-hover:opacity-100">Facebook</span>
+          </a>
+
+          {/* Phone */}
+          <a
+            href={contactInfo.phone}
+            className="flex flex-col items-center gap-3 group"
+          >
+            <div className="p-5 bg-white/15 backdrop-blur-sm rounded-2xl transition-all group-hover:bg-emerald-500/30 group-hover:scale-110">
+              <PhoneCall size={40} className="text-white group-hover:text-emerald-300 transition-colors" />
+            </div>
+            <span className="text-sm font-medium opacity-90 group-hover:opacity-100">Call Us</span>
+          </a>
+
+          {/* Email */}
+          <a
+            href={contactInfo.email}
+            className="flex flex-col items-center gap-3 group"
+          >
+            <div className="p-5 bg-white/15 backdrop-blur-sm rounded-2xl transition-all group-hover:bg-amber-500/30 group-hover:scale-110">
+              <Mail size={40} className="text-white group-hover:text-amber-300 transition-colors" />
+            </div>
+            <span className="text-sm font-medium opacity-90 group-hover:opacity-100">Email</span>
+          </a>
+        </div>
+        
+      </div>
+    </section>
+  );
+};
 const Footer = () => (
   <footer className="bg-gray-900 text-gray-400 py-10 text-center text-sm">
     <p>© {new Date().getFullYear()} Nexvora. Crafted with care in India. All rights reserved.</p>
