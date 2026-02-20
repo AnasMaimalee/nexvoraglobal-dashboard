@@ -288,7 +288,7 @@ const Reviews = () => {
 
 const Contact = () => {
   const contactInfo = {
-    whatsapp: "https://wa.me/2348123442014?text=Hello%20Nexvora%20team%21%20I%20a%20want%20to%20place%20order...",
+    whatsapp: "https://wa.me/2348123442014?text=Hello%20Nexvora%20team%21%20I%20want%20to%20place%20order...",
     instagram: "https://instagram.com/nexvora_global",
     facebook: "https://facebook.com/nexvora",
     phone: "tel:+2348123442014",
