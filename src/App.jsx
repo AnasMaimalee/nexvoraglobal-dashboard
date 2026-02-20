@@ -32,6 +32,30 @@ const mayafiProducts = [
     desc: "Flowing silhouette • Subtle luxury",
     price: "₹5,499",
   },
+    {
+    img: "/9.jpeg",
+    name: "Mayafi Everyday Abaya",
+    desc: "Light chiffon • Breathable • Timeless",
+    price: "₹4,999",
+  },
+  {
+    img: "/10.jpeg",
+    name: "Luxury Jallabiya Thobe",
+    desc: "Premium blend • Embroidered",
+    price: "₹6,799",
+  },
+  {
+    img: "/11.jpeg",
+    name: "Nexvora Comfort Shoes",
+    desc: "Ergonomic • Modest • All-day wear",
+    price: "₹3,299",
+  },
+  {
+    img: "/12.jpeg",
+    name: "Mayafi Evening Drape",
+    desc: "Flowing silhouette • Subtle luxury",
+    price: "₹5,499",
+  },
 ];
 
 // ── Carousel Component ───────────────────────────────────────────
@@ -91,7 +115,7 @@ const Header = () => {
   const navItems = ["Home", "Mayafi", "About", "Reviews", "Contact"];
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-lg border-b sticky top-0 z-50 shadow-sm border-indigo-400/30">
+    <header className="w-full bg-white/95 backdrop-blur-lg border-b sticky top-0 z-50 shadow-sm border-indigo-400">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
           Nexvora
